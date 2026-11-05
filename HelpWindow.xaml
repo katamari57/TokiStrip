@@ -1,0 +1,26 @@
+<Window x:Class="VisualBarTimer.HelpWindow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ Title="TokiStrip の使い方" Width="460" SizeToContent="Height"
+ ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner"
+ Background="#F7F8F7" FontSize="14">
+ <StackPanel Margin="20" KeyboardNavigation.TabNavigation="Cycle">
+  <Image x:Name="TimerPicture" Stretch="Uniform" MaxHeight="122"
+         AutomationProperties.Name="左に時間設定バー、下にSTARTまたはSTOPとRESETが並ぶタイマー画面"/>
+  <TextBlock Margin="0,16,0,0" TextWrapping="Wrap">
+   <Run FontWeight="SemiBold">バー</Run><LineBreak/>
+   停止中に左右へドラッグするか、バーの上でホイールを回します。上で1分増え、下で1分減ります。
+  </TextBlock>
+  <TextBlock Margin="0,12,0,0" TextWrapping="Wrap">
+   <Run FontWeight="SemiBold">START / STOP</Run><LineBreak/>
+   STARTで開始・再開、STOPで一時停止。アラーム中のSTOPは音を止め、設定時間に戻します。
+  </TextBlock>
+  <TextBlock Margin="0,12,0,0" TextWrapping="Wrap">
+   <Run FontWeight="SemiBold">RESET</Run><LineBreak/>
+   設定時間に戻します。アラームが鳴っていれば音も止まります。
+  </TextBlock>
+  <Button Content="閉じる" Margin="0,16,0,0" Width="100" Height="32"
+          HorizontalAlignment="Right" IsCancel="True" Click="CloseClick"/>
+ </StackPanel>
+</Window>
+

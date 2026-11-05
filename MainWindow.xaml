@@ -1,0 +1,90 @@
+<Window x:Class="VisualBarTimer.MainWindow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ Title="TokiStrip" Width="442" Height="148" MinWidth="442" MinHeight="148" MaxWidth="1326" MaxHeight="296"
+ WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True"
+ Background="Transparent" Topmost="True" WindowStartupLocation="CenterScreen"
+ UseLayoutRounding="True" SnapsToDevicePixels="True">
+ <Window.Resources>
+  <Style x:Key="TopButton" TargetType="Button">
+   <Setter Property="FontSize" Value="13"/>
+   <Setter Property="FontWeight" Value="SemiBold"/>
+   <Setter Property="Foreground" Value="#42484B"/>
+   <Setter Property="Background" Value="#F4F4F1"/>
+   <Setter Property="Template">
+    <Setter.Value>
+     <ControlTemplate TargetType="Button">
+      <Border x:Name="Cap" Background="{TemplateBinding Background}" BorderBrush="#B8BCBA"
+              BorderThickness="1" CornerRadius="7">
+       <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+      </Border>
+      <ControlTemplate.Triggers>
+       <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Cap" Property="Background" Value="White"/></Trigger>
+       <Trigger Property="IsPressed" Value="True"><Setter TargetName="Cap" Property="Background" Value="#C5CCC9"/></Trigger>
+       <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Cap" Property="BorderBrush" Value="#56766A"/></Trigger>
+      </ControlTemplate.Triggers>
+     </ControlTemplate>
+    </Setter.Value>
+   </Setter>
+  </Style>
+ </Window.Resources>
+ <Grid x:Name="TimerPanel" Margin="12">
+  <Grid.ContextMenu>
+   <ContextMenu>
+    <MenuItem Header="前面に固定" IsCheckable="True" IsChecked="{Binding PlacementTarget.Tag.Topmost, RelativeSource={RelativeSource AncestorType=ContextMenu}, Mode=TwoWay}"/>
+    <MenuItem Header="拡大表示">
+     <MenuItem Header="最小" Tag="0" Click="ResizePreset"/>
+     <MenuItem Header="中くらい" Tag="0.5" Click="ResizePreset"/>
+     <MenuItem Header="最大" Tag="1" Click="ResizePreset"/>
+    </MenuItem>
+    <MenuItem Header='使い方' Click='ShowHelp'/>
+    <MenuItem Header="閉じる" Click="CloseClick"/>
+   </ContextMenu>
+  </Grid.ContextMenu>
+  <Grid.Tag><Binding RelativeSource="{RelativeSource AncestorType=Window}"/></Grid.Tag>
+  <Border CornerRadius="10" BorderBrush="#B8BFBB" BorderThickness="1" Padding="10,9"
+          MouseLeftButtonDown="DragHeader">
+   <Border.Background>
+    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+     <GradientStop Color="#FFFFFF"/><GradientStop Offset="1" Color="#E2E5E2"/>
+    </LinearGradientBrush>
+   </Border.Background>
+   <Border.Effect><DropShadowEffect BlurRadius="12" ShadowDepth="2" Opacity=".27"/></Border.Effect>
+   <Grid>
+    <Grid.RowDefinitions><RowDefinition Height='*'/><RowDefinition Height='48'/></Grid.RowDefinitions>
+    <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition x:Name="ReadoutColumn" Width="117"/></Grid.ColumnDefinitions>
+    <Border Background="#171C1F" BorderBrush="#929B98" BorderThickness="1" CornerRadius="4" Padding="4" Margin="0,0,6,0">
+     <Grid><UniformGrid x:Name="Segments" Rows="1"/><Thumb x:Name="BarAdjust" Cursor="SizeWE" ToolTip="左右ドラッグまたはホイールで1分ずつ調整。" AutomationProperties.Name="時間調整バー" DragStarted="BarStarted" DragDelta="BarMoved" DragCompleted="BarCompleted" PreviewMouseWheel="BarWheel"><Thumb.Template><ControlTemplate TargetType="Thumb"><Border Background="Transparent"/></ControlTemplate></Thumb.Template></Thumb></Grid>
+    </Border>
+    <Border Grid.Column="1" Background="#151A1D" BorderBrush="#929B98" BorderThickness="1" CornerRadius="4">
+     <Viewbox Margin="8,10" Stretch="Uniform"><Label x:Name="TimeReadout" Padding="0"><Canvas x:Name="TimeDisplay" Width="100" Height="34"/></Label></Viewbox>
+    </Border>
+    <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,0">
+   <Button x:Name="StartButton" Style="{StaticResource TopButton}" Width="204" Background="#DAEFE5" Content="START" Click="ToggleTimer"/>
+   <Button Style="{StaticResource TopButton}" Width="120" Content="RESET" Margin="8,0,0,0" Click="ResetTimer"/>
+  </StackPanel>
+    <Thumb Grid.Row="1" Grid.Column="1" Width="24" Height="24"
+           HorizontalAlignment="Right" VerticalAlignment="Bottom" Cursor="SizeNWSE"
+           AutomationProperties.Name="サイズ変更" ToolTip="ドラッグでサイズ変更"
+           DragStarted="ResizeStarted" DragDelta="ResizeMoved">
+     <Thumb.Template>
+      <ControlTemplate TargetType="Thumb">
+       <Border Background="Transparent">
+        <Path Data="M 9,19 L 19,9 M 14,19 L 19,14 M 18,19 L 19,18"
+              Stroke="#697570" StrokeThickness="1.4" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+       </Border>
+      </ControlTemplate>
+     </Thumb.Template>
+    </Thumb>
+   </Grid>
+  </Border>
+ </Grid>
+</Window>
+
+
+
+
+
+
+
+

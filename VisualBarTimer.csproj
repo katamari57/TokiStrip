@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>TokiStrip</AssemblyName>
+    <RootNamespace>VisualBarTimer</RootNamespace>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup><EmbeddedResource Include="TimerAlarm.wav;DragClick.wav;ButtonBeep.wav" /></ItemGroup>
+</Project>
+
+
