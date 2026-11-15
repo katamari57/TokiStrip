@@ -8,7 +8,7 @@ TokiStrip is a Windows desktop countdown timer. It shows time remaining as both 
 
 ## Download
 
-1. Open [Releases](../../releases/latest) and download `TokiStrip-v1.0.0-win-x64.zip` under **Assets**.
+1. Open [Releases](../../releases/latest) and download `TokiStrip-*-win-x64.zip` under **Assets**.
 2. Extract the ZIP and open `TokiStrip.exe`.
 
 The download targets Windows x64 and includes .NET.

@@ -8,9 +8,13 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>TokiStrip.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup><EmbeddedResource Include="TimerAlarm.wav;DragClick.wav;ButtonBeep.wav" /></ItemGroup>
+  <ItemGroup>
+    <Resource Include="TokiStrip.ico" />
+  </ItemGroup>
 </Project>
 
 

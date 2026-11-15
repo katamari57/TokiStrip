@@ -1,7 +1,7 @@
 <Window x:Class="VisualBarTimer.MainWindow"
  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
- Title="TokiStrip" Width="442" Height="148" MinWidth="442" MinHeight="148" MaxWidth="1326" MaxHeight="296"
+ Title="TokiStrip" Icon="TokiStrip.ico" Width="442" Height="148" MinWidth="442" MinHeight="148" MaxWidth="1326" MaxHeight="296"
  WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True"
  Background="Transparent" Topmost="True" WindowStartupLocation="CenterScreen"
  UseLayoutRounding="True" SnapsToDevicePixels="True">

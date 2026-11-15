@@ -8,7 +8,7 @@ TokiStrip は、残り時間を **25目盛りのカラーバー**と数字で表
 
 ## ダウンロード
 
-1. [Releases](../../releases/latest) の **Assets** から `TokiStrip-v1.0.0-win-x64.zip` をダウンロードします。
+1. [Releases](../../releases/latest) の **Assets** から `TokiStrip-*-win-x64.zip` をダウンロードします。
 2. ZIP を展開して `TokiStrip.exe` を開きます。
 
 対象は Windows x64 です。配布 ZIP には .NET が同梱されています。
